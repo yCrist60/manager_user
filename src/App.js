@@ -1,7 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState,useEffect} from "react";
 
 function App() {
+
+const  [dados, setDados] = useState([])
+useEffect(()=>{
+  fetch("http://10.26.44.20:3000")
+  .then((resposta) => resposta.json())
+  .then((result) =>{
+    console.log(result);
+  })
+  .catch((erro)=>console.log(`erro ao carregar a API -> ${erro}`));
+},[]);
+
+
   return (
     <div className="App">
       <header className="App-header">
