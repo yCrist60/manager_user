@@ -1,7 +1,22 @@
-export default function View(){
+export default function View(props){
     return(
-        <div>
-            <h2>Área do View</h2>
+        <div className="view">
+            <h2>Lista de Cientes</h2>
+            <hr/>
+            {
+                props.data.map((itens,ix)=>(
+                  <div key={ix}>
+                        <li>{itens.nome}</li>
+                        <li>{itens.email}</li>
+                        <li>{itens.cpf}</li>
+                        <li>{itens.telefone}</li>
+                        <li>{itens.usuario}</li>
+                    <hr/>
+
+                  </div>  
+                ))
+            }
+
         </div>
     )
 }
